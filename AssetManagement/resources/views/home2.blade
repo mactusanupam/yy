@@ -1,0 +1,128 @@
+ 
+ @extends('layouts.app')
+
+@section('content')
+<form id="myform "class="form-horizontal" role="form" method="POST" action="{{ url('/ApplyLeave') }}">
+{!! csrf_field() !!}
+<!DOCTYPE html>
+<html>
+<head>
+<style> 
+.div1 {
+     height: 80%;
+     width: 90%;
+     font-family:Arial, Helvetica, sans-serif;
+     font-size: 150%;
+     background-color: #ccccff;
+     margin-left:5%;
+     margin-top:1%;
+    
+}
+
+.div2 {
+    height: 80%;
+     width: 90%;
+     font-size: 150%;
+     font-family:Arial, Helvetica, sans-serif;
+     background-color: #b3b3ff;
+     margin-left:5%;
+     margin-top:0.2%;
+     text-align: center;
+     
+}
+
+.div3 {
+    height: 80%;
+    width: 90%;
+    font-size: 150%;
+    font-family:Arial, Helvetica, sans-serif;
+    background-color:#9999ff;
+    margin-left:5%;
+    margin-top:0.2%;
+    text-align: center;
+    
+}
+
+.div4 {
+     height: 80%;
+     width: 90%;
+     font-size: 150%;
+     font-family:Arial, Helvetica, sans-serif;
+     background-color:#8080ff;
+     margin-left:5%;
+     margin-top:0.2%;
+     text-align: center;
+    
+}
+
+.div5 {
+     height: 80%;
+     width: 90%;
+     font-size: 150%;
+     font-family:Arial, Helvetica, sans-serif;
+     background-color:#6666ff;
+     margin-left:5%;
+     margin-top:0.2%;
+     text-align: center;
+     
+}
+ 
+.div6 {
+     height: 80%;
+     width: 90%;
+     font-size: 150%;
+     font-family:Arial, Helvetica, sans-serif;
+     background-color:#6666ff;
+     margin-left:5%;
+     margin-top:0.2%;
+     text-align: center;
+     
+}
+
+h5 {
+    font-weight: bold;
+    font-size: 180%;
+    color: LAVENDERBLUSH;
+    margin-top:15px;
+}
+
+
+</style>
+<?php
+
+            $username = Auth::user()->name;
+
+          $filepath = 'img/'.$username.'.png';
+
+echo   '<h5><marquee>Announcement and Achievements at work space</marquee></h5>';
+    for ($i = 0; $i < count($db1) ; $i++)
+    {
+         "<tr>
+                    <td>".$db1[$i]->informationdetails."</td>
+                    
+                </tr>"; 
+             
+
+    }
+    
+     
+    echo   "<div class='div1'><br><center> ".$db1['0']->informationdetails." </br><br>  </center></div>";
+    echo   "<div class='div2'><br> ".$db1['1']->informationdetails."</br><br></div>";
+    echo   "<div class='div3'><br> ".$db1['2']->informationdetails."</br><br></div>";
+    echo   "<div class='div4'><br> ".$db1['3']->informationdetails."</br><br></div>";
+    echo   "<div class='div5'><br> ".$db1['4']->informationdetails."</br><br></div>";
+   
+
+?>
+</head>
+
+</html>
+</form>
+<script>
+ function submitimg()
+ {
+    document.getElementById("myform").submit();
+ }
+ 
+</script>
+@endsection
